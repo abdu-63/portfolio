@@ -14,10 +14,10 @@ export const featuredProjects: FeaturedProject[] = [
     name: "Facto",
     repo: "facto",
     description: {
-      fr: "Application macOS native développée avec Tauri v2 et Vanilla JS pour la création, l'édition sur mesure et la gestion de devis, factures et avoirs pour deux entreprises.",
-      en: "Native macOS desktop app built with Tauri v2 and Vanilla JS to create, customize, manage, and export quotes, invoices, and credit notes for two multi-brand companies.",
+      fr: "Application macOS native de facturation et devis sur mesure pour entreprises.",
+      en: "Native macOS desktop app for custom invoicing and quote management.",
     },
-    tags: ["Tauri v2", "Rust", "JavaScript (ES6)", "HTML5 / Vanilla CSS", "macOS Design System", "html2pdf.js"],
+    tags: ["Tauri v2", "Rust", "JavaScript", "macOS"],
     isPrivate: true,
     readme: {
       fr: `### 🚀 Présentation
@@ -70,18 +70,10 @@ The application pairs the security and speed of a **Tauri v2 (Rust)** desktop ba
     name: "CinéLyon App",
     repo: "cinelyon-app",
     description: {
-      fr: "Application mobile native iOS/Android développée avec React Native (Expo SDK 52) et Supabase pour centraliser la consultation des séances, horaires et cinémas de la métropole lyonnaise.",
-      en: "Native iOS & Android mobile app built with React Native (Expo SDK 52) and Supabase to consolidate movie showtimes, schedules, and theaters across the Lyon metropolitan area.",
+      fr: "Application mobile iOS & Android pour consulter les séances de cinéma à Lyon.",
+      en: "Native iOS & Android app for movie showtimes across the Lyon area.",
     },
-    tags: [
-      "React Native",
-      "Expo SDK 52",
-      "TypeScript",
-      "Swift (iOS Widget)",
-      "Supabase",
-      "TanStack Query",
-      "MMKV",
-    ],
+    tags: ["React Native", "TypeScript", "Supabase", "Swift Widget"],
     isPrivate: true,
     readme: {
       fr: `### 🚀 Présentation
@@ -130,10 +122,10 @@ Engineered with a high-performance **Offline-First** architecture, CinéLyon als
     name: "Green Paysage",
     repo: "greenpaysages",
     description: {
-      fr: "Plateforme web vitrine & expérience interactive haut de gamme dédiée à la création et à l'aménagement d'espaces verts d'exception.",
-      en: "High-end showcase website & interactive web experience designed for an exceptional landscape design and outdoor creation firm.",
+      fr: "Site vitrine interactif pour une entreprise d'aménagement paysager.",
+      en: "Interactive showcase website for a landscape design firm.",
     },
-    tags: ["JavaScript (ES6+)", "Tailwind CSS", "HTML5", "CSS3", "Container Queries", "Intersection Observer"],
+    tags: ["JavaScript", "HTML5 / CSS3", "Tailwind CSS"],
     isPrivate: true,
     readme: {
       fr: `### 🚀 Présentation
