@@ -17,7 +17,7 @@ function ManifestoStatement() {
   const containerRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: containerRef,
-    offset: ["start 0.85", "end 0.4"],
+    offset: ["start 0.65", "end 0.25"],
   });
 
   const statementFr =
