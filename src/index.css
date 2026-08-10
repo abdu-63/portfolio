@@ -302,14 +302,10 @@ section {
   width: 100%;
   margin: 0;
   user-select: none;
-  word-break: keep-all;
-  overflow-wrap: normal;
-  hyphens: none;
 }
 
 .hero-giant-title span {
   display: block;
-  white-space: nowrap;
 }
 
 .hero-giant-title .kern-f {
