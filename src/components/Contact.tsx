@@ -8,6 +8,8 @@ export default function Contact() {
   const { lang } = useLang();
   const [copied, setCopied] = useState(false);
   const [formSubmitted, setFormSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState<string | null>(null);
   const [formData, setFormData] = useState({ name: "", email: "", message: "" });
 
   const handleCopyEmail = () => {
@@ -16,11 +18,54 @@ export default function Contact() {
     setTimeout(() => setCopied(false), 2500);
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setFormSubmitted(true);
-    setTimeout(() => setFormSubmitted(false), 4000);
-    setFormData({ name: "", email: "", message: "" });
+    setIsSubmitting(true);
+    setSubmitError(null);
+
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          access_key: "aefe51cf-91e7-45c5-b625-29f54baa8ca2",
+          name: formData.name,
+          email: formData.email,
+          message: formData.message,
+          subject: `Nouveau message Portfolio de ${formData.name}`,
+          from_name: "Portfolio Abdu",
+        }),
+      });
+
+      const result = await response.json();
+
+      if (result.success) {
+        setFormSubmitted(true);
+        setFormData({ name: "", email: "", message: "" });
+        setTimeout(() => setFormSubmitted(false), 5000);
+      } else {
+        setSubmitError(
+          t(
+            "Une erreur est survenue lors de l'envoi. Veuillez réessayer ou contacter directement par email.",
+            "An error occurred while sending. Please try again or send an email directly.",
+            lang
+          )
+        );
+      }
+    } catch {
+      setSubmitError(
+        t(
+          "Erreur de connexion. Veuillez vérifier votre réseau.",
+          "Network error. Please check your connection.",
+          lang
+        )
+      );
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -126,8 +171,11 @@ export default function Contact() {
             />
           </div>
 
-          <button type="submit" className="btn btn-primary" style={{ width: "100%" }}>
-            {t("Envoyer le message", "Submit message", lang)} →
+          <button type="submit" className="btn btn-primary" style={{ width: "100%" }} disabled={isSubmitting}>
+            {isSubmitting
+              ? t("Envoi en cours...", "Sending...", lang)
+              : t("Envoyer le message", "Submit message", lang)}{" "}
+            →
           </button>
 
           {formSubmitted && (
@@ -137,6 +185,16 @@ export default function Contact() {
               style={{ color: "var(--pulse-green)", fontWeight: 500, margin: 0, display: "inline-flex", alignItems: "center", gap: "6px" }}
             >
               <CheckIcon size={16} /> {t("Message envoyé avec succès !", "Message sent successfully!", lang)}
+            </motion.p>
+          )}
+
+          {submitError && (
+            <motion.p
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              style={{ color: "#ef4444", fontWeight: 500, margin: 0, fontSize: "0.9rem" }}
+            >
+              {submitError}
             </motion.p>
           )}
         </motion.form>

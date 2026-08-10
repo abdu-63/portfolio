@@ -11,6 +11,119 @@ export interface FeaturedProject {
 
 export const featuredProjects: FeaturedProject[] = [
   {
+    name: "CinéLyon App",
+    repo: "cinelyon-app",
+    description: {
+      fr: "Application mobile iOS & Android pour consulter les séances de cinéma à Lyon.",
+      en: "Native iOS & Android app for movie showtimes across the Lyon area.",
+    },
+    tags: ["React Native", "TypeScript", "Supabase", "Swift Widget"],
+    isPrivate: true,
+    readme: {
+      fr: `### Présentation
+**CinéLyon** est une application mobile cross-platform (iOS & Android) développée pour les passionnés de cinéma dans la métropole lyonnaise. Elle réunit en un lieu unique l'ensemble des films à l'affiche, les horaires complets des séances, les bandes-annonces, les détails des films et les cinémas de la région (UGC, Pathé, Comoedia, complexes indépendants).
+
+L'application s'appuie sur une architecture **Offline-First** ultra-performante et intègre une extension native **Widget iOS en Swift** (compatible iOS 15.1+) pour consulter les séances à tout moment directement depuis l'écran d'accueil du smartphone.
+
+### Fonctionnalités clés
+- **Consultation complète des séances & films** : Tri et affichage dynamique des séances par jour, version (VF / VOSTFR), format (IMAX, 3D, 4K, Dolby) et réseaux de cinémas de la métropole de Lyon.
+- **Filtrage avancé & Recherche instantanée** : Filtres rapides par cinéma, date, type de séance ou genre avec réponse visuelle immédiate.
+- **Widget iOS Natif (Swift / SwiftUI)** : Extension native développée en Swift via \`@bacons/apple-targets\` (cible iOS 15.1+), partageant son état avec l'application hôte via un App Group iOS (\`group.fr.cinelyon.app\`).
+- **Export Calendrier & Intégration Système** : Ajout d'une séance directement dans le calendrier natif du smartphone (\`expo-calendar\`), retours haptiques (\`expo-haptics\`) et icônes d'application dynamiques personnalisables.
+- **Synchronisation Favoris & Authentification** : Authentification et persistance des films et cinémas favoris synchronisés en temps réel via Supabase.
+- **Fiche Film & Média** : Détails exhaustifs, intégration des bandes-annonces vidéo YouTube, géolocalisation des salles sur cartes interactives (\`react-native-maps\`) et liens directs vers la billetterie.
+
+### Architecture & Choix Techniques
+- **Stack** : **React Native (Expo SDK 52)**, **Expo Router v4** (routing basé sur le système de fichiers), **TypeScript strict**, **Supabase** (Auth & Base de données) et **Swift** (Widget iOS natif).
+- **Points techniques notables** :
+  - **Architecture Offline-First & Cache MMKV** : Utilisation de TanStack React Query couplé à \`react-native-mmkv\` pour la persistance du cache sur disque, garantissant une réponse instantanée et une consultation 100% fonctionnelle hors-ligne.
+  - **Optimisations des performances UI à 60 FPS** : Gestion fluide des animations et du scroll exécutée directement sur le thread UI natif grâce à \`react-native-reanimated\` (évitant tout re-render inutile du thread JS). Mémoïsation stricte des styles (\`useMemo\`) et des sous-composants (\`React.memo\`).
+  - **Sécurité & Stockage Chiffré** : Adaptateur d'authentification Supabase personnalisé s'appuyant sur \`expo-secure-store\` (Keychain AES-256 sur iOS, EncryptedSharedPreferences sur Android) pour la protection des tokens d'accès.
+  - **Compatibilité Native iOS 15.1 Strict** : Extension native configurée et testée pour garantir une compatibilité ascendante parfaite sur les appareils sous iOS 15.1+ sans dépendre des APIs WidgetKit restreintes aux OS plus récents (iOS 16/17+).`,
+      en: `### Overview
+**CinéLyon** is a cross-platform mobile application (iOS & Android) designed for moviegoers across the Lyon metropolitan area. It aggregates all movies currently playing, full showtime schedules, trailers, film details, and theater locations (UGC, Pathé, Comoedia, independent arthouse cinemas) into a single, cohesive experience.
+
+Engineered with a high-performance **Offline-First** architecture, CinéLyon also features a native **iOS Swift Widget** (iOS 15.1+ compatible) allowing users to check upcoming showtimes directly from their iPhone home screen.
+
+### Key Features
+- **Comprehensive Showtime & Movie Directory**: Dynamic breakdown of showtimes by day, audio version (VF / VOSTFR), format (IMAX, 3D, 4K, Dolby), and theater chain.
+- **Advanced Filtering & Instant Search**: Rapid filters by cinema chain, date, audio/format specs, or genre with instantaneous UI updates.
+- **Native iOS Widget (Swift / SwiftUI)**: Native iOS extension built in Swift using \`@bacons/apple-targets\` (iOS 15.1+ target), sharing state with the main application via an Apple App Group (\`group.fr.cinelyon.app\`).
+- **Native Calendar Sync & System Integration**: One-tap showtime export to the native device calendar (\`expo-calendar\`), custom dynamic app icons (\`expo-dynamic-app-icon\`), and subtle haptic feedback (\`expo-haptics\`).
+- **Favorites Sync & Auth**: Supabase-powered authentication with real-time cloud sync for user favorite movies and preferred theaters.
+- **Rich Movie Details & Media**: In-depth film sheets, embedded YouTube trailers, interactive theater location maps (\`react-native-maps\`), and direct ticketing links.
+
+### Architecture & Tech Stack
+- **Stack**: **React Native (Expo SDK 52)**, **Expo Router v4** (file-system routing), **Strict TypeScript**, **Supabase** (Auth & DB), and **Swift** (Native iOS Widget target).
+- **Technical Highlights**:
+  - **Offline-First Architecture & MMKV Cache**: Powered by TanStack React Query persisted to disk via \`react-native-mmkv\`. Guarantees near-instantaneous load times and full offline usability.
+  - **60 FPS UI Thread Performance**: Gesture-driven animations and scroll handling offloaded to the native UI thread via \`react-native-reanimated\` (zero JS thread overhead). Strict memoization of styles (\`useMemo\`) and subcomponents (\`React.memo\`).
+  - **Encrypted Security Layer**: Custom Supabase auth storage adapter backed by \`expo-secure-store\` (Keychain AES-256 on iOS, EncryptedSharedPreferences on Android) for safe credential handling.
+  - **Strict iOS 15.1 Deployment Target**: Native extension target engineered specifically to maintain compatibility with iOS 15.1+ devices without reliance on iOS 16/17+ restricted WidgetKit APIs.`,
+    },
+  },
+  {
+    name: "CinéLyon",
+    repo: "cinelyon",
+    description: {
+      fr: "Toutes les séances de cinéma à Lyon, en un seul endroit.",
+      en: "All movie showtimes in Lyon, in one place.",
+    },
+    tags: ["TypeScript", "Web", "React"],
+    github: "https://github.com/abdu-63/cinelyon",
+    live: "https://cinelyon.fr",
+  },
+  {
+    name: "Hodos",
+    repo: "hodos",
+    description: {
+      fr: "Application mobile de gestion et suivi en temps réel des chantiers d'élagage et d'inspection d'arbres.",
+      en: "Mobile app for real-time management and tracking of tree pruning and inspection sites.",
+    },
+    tags: ["TypeScript", "React Native", "Mobile"],
+    github: "https://github.com/abdu-63/hodos",
+  },
+  {
+    name: "Odyssey",
+    repo: "Odyssey",
+    description: {
+      fr: "Explorez pour dévoiler votre monde.",
+      en: "Explore to unveil your world.",
+    },
+    tags: ["TypeScript", "React Native", "Geolocation"],
+    github: "https://github.com/abdu-63/Odyssey",
+  },
+  {
+    name: "PlayStream",
+    repo: "PlayStream",
+    description: {
+      fr: "Streamer vos films et séries Google Drive directement sur iOS.",
+      en: "Stream your Google Drive movies and TV shows directly on iOS.",
+    },
+    tags: ["Swift", "iOS", "Streaming"],
+    github: "https://github.com/abdu-63/PlayStream",
+  },
+  {
+    name: "Plumo",
+    repo: "Plumo",
+    description: {
+      fr: "Plateforme moderne de streaming d'animés kaï !",
+      en: "Modern anime kaï streaming platform.",
+    },
+    tags: ["JavaScript", "Streaming", "Web App"],
+    github: "https://github.com/abdu-63/Plumo",
+  },
+  {
+    name: "Converto",
+    repo: "converto",
+    description: {
+      fr: "Convertisseur pour iOS.",
+      en: "A converter for iOS.",
+    },
+    tags: ["Swift", "iOS"],
+    github: "https://github.com/abdu-63/converto",
+  },
+  {
     name: "Facto",
     repo: "facto",
     description: {
@@ -67,55 +180,75 @@ The application pairs the security and speed of a **Tauri v2 (Rust)** desktop ba
     },
   },
   {
-    name: "CinéLyon App",
-    repo: "cinelyon-app",
+    name: "Qwirkle",
+    repo: "qwirkle",
     description: {
-      fr: "Application mobile iOS & Android pour consulter les séances de cinéma à Lyon.",
-      en: "Native iOS & Android app for movie showtimes across the Lyon area.",
+      fr: "Jeu Qwirkle développé en C pour le projet du semestre 1 à l'ECE Lyon.",
+      en: "Qwirkle game engine developed in C for ECE Lyon semester 1 project.",
     },
-    tags: ["React Native", "TypeScript", "Supabase", "Swift Widget"],
+    tags: ["C", "Algorithms", "Game"],
+    github: "https://github.com/abdu-63/qwirkle",
+  },
+  {
+    name: "Hide-Letterboxd-Rating",
+    repo: "Hide-Letterboxd-Rating",
+    description: {
+      fr: "Masque automatiquement les notes sur les films non vus sur Letterboxd.",
+      en: "Automatically hides ratings on unseen films on Letterboxd.",
+    },
+    tags: ["JavaScript", "Extension"],
+    github: "https://github.com/abdu-63/Hide-Letterboxd-Rating",
+  },
+  {
+    name: "Portfolio",
+    repo: "portfolio",
+    description: {
+      fr: "Mon portfolio personnel modernisé style Apple.",
+      en: "My personal developer portfolio styled after Apple.",
+    },
+    tags: ["React 19", "TypeScript", "Vite", "framer-motion"],
     isPrivate: true,
     readme: {
       fr: `### Présentation
-**CinéLyon** est une application mobile cross-platform (iOS & Android) développée pour les passionnés de cinéma dans la métropole lyonnaise. Elle réunit en un lieu unique l'ensemble des films à l'affiche, les horaires complets des séances, les bandes-annonces, les détails des films et les cinémas de la région (UGC, Pathé, Comoedia, complexes indépendants).
+**Portfolio** est une vitrine web personnelle modernisée au design épuré et minimaliste, directement inspirée par le design system d'Apple et les standards visuels contemporains. Elle centralise et met en valeur l'ensemble des projets majeurs (applications mobiles, logiciels desktop natifs et applications web) ainsi que l'intégralité des dépôts GitHub publics synchronisés en temps réel.
 
-L'application s'appuie sur une architecture **Offline-First** ultra-performante et intègre une extension native **Widget iOS en Swift** (compatible iOS 15.1+) pour consulter les séances à tout moment directement depuis l'écran d'accueil du smartphone.
+L'application a été conçue sans dépendance à un framework UI externe, s'appuyant sur une architecture réactive fluide, une internationalisation complète (FR/EN) et une expérience visuelle haut de gamme intégrée aux modes clair et sombre.
 
 ### Fonctionnalités clés
-- **Consultation complète des séances & films** : Tri et affichage dynamique des séances par jour, version (VF / VOSTFR), format (IMAX, 3D, 4K, Dolby) et réseaux de cinémas de la métropole de Lyon.
-- **Filtrage avancé & Recherche instantanée** : Filtres rapides par cinéma, date, type de séance ou genre avec réponse visuelle immédiate.
-- **Widget iOS Natif (Swift / SwiftUI)** : Extension native développée en Swift via \`@bacons/apple-targets\` (cible iOS 15.1+), partageant son état avec l'application hôte via un App Group iOS (\`group.fr.cinelyon.app\`).
-- **Export Calendrier & Intégration Système** : Ajout d'une séance directement dans le calendrier natif du smartphone (\`expo-calendar\`), retours haptiques (\`expo-haptics\`) et icônes d'application dynamiques personnalisables.
-- **Synchronisation Favoris & Authentification** : Authentification et persistance des films et cinémas favoris synchronisés en temps réel via Supabase.
-- **Fiche Film & Média** : Détails exhaustifs, intégration des bandes-annonces vidéo YouTube, géolocalisation des salles sur cartes interactives (\`react-native-maps\`) et liens directs vers la billetterie.
+- **Design System Apple & Mode Sombre Dynamique** : Interface minimaliste avec effets de *glassmorphism*, animations fluides, typographie soignée et basculement instantané entre thème clair et sombre sans saut visuel (\`ThemeProvider\` + variables CSS).
+- **Internationalisation Bilingue (FR / EN)** : Prise en charge native du bilinguisme avec basculement instantané de la langue et persistance des préférences utilisateur dans le stockage local (\`localStorage\`).
+- **Fiches Projets Privés & Modale de Détails** : Présentation détaillée des architectures, fonctionnalités et choix techniques des projets sous licence privée via des fenêtres modales interactives (\`FormattedReadme\` avec rendu Markdown personnalisé).
+- **Synchronisation API GitHub en Temps Réel** : Récupération dynamique et filtrage intelligent de l'ensemble des dépôts publics via l'API GitHub avec déduplication automatique des projets mis en avant et gestion fine des états de chargement.
+- **Recherche Instantanée & Filtres Dynamiques** : Moteur de recherche côté client permettant d'effectuer des recherches en temps réel sur l'ensemble des dépôts par nom, description ou langage de programmation.
+- **Micro-Animations Spring à 60 FPS** : Animations d'entrée dynamiques au défilement alimentées par \`framer-motion\` pour une sensation de réactivité et d'élégance naturelle.
 
 ### Architecture & Choix Techniques
-- **Stack** : **React Native (Expo SDK 52)**, **Expo Router v4** (routing basé sur le système de fichiers), **TypeScript strict**, **Supabase** (Auth & Base de données) et **Swift** (Widget iOS natif).
+- **Stack** : **React 19**, **TypeScript** (mode strict), **Vite 8** (build & dev server), **framer-motion** et **Vanilla CSS** avec variables CSS sur-mesure.
 - **Points techniques notables** :
-  - **Architecture Offline-First & Cache MMKV** : Utilisation de TanStack React Query couplé à \`react-native-mmkv\` pour la persistance du cache sur disque, garantissant une réponse instantanée et une consultation 100% fonctionnelle hors-ligne.
-  - **Optimisations des performances UI à 60 FPS** : Gestion fluide des animations et du scroll exécutée directement sur le thread UI natif grâce à \`react-native-reanimated\` (évitant tout re-render inutile du thread JS). Mémoïsation stricte des styles (\`useMemo\`) et des sous-composants (\`React.memo\`).
-  - **Sécurité & Stockage Chiffré** : Adaptateur d'authentification Supabase personnalisé s'appuyant sur \`expo-secure-store\` (Keychain AES-256 sur iOS, EncryptedSharedPreferences sur Android) pour la protection des tokens d'accès.
-  - **Compatibilité Native iOS 15.1 Strict** : Extension native configurée et testée pour garantir une compatibilité ascendante parfaite sur les appareils sous iOS 15.1+ sans dépendre des APIs WidgetKit restreintes aux OS plus récents (iOS 16/17+).`,
+  - **Zéro Framework CSS Heavy** : Développement 100% sur-mesure de la feuille de style globale (\`src/index.css\`), garantissant des performances d'affichage maximales, un bundle ultra-léger et un contrôle total sur l'accessibilité et la mise en page responsive.
+  - **Gestion de l'État Légère & Sans Surcharge** : Utilisation exclusive du Context React natif pour la thématisation et la langue, éliminant le besoin de bibliothèques lourdes de gestion d'état.
+  - **Filtre Annulation d'Effet Strict (StrictMode)** : Gestion propre des requêtes réseau asynchrones avec drapeaux d'annulation (\`cancelled\` flag) pour éviter les fuites de mémoire et les double-exécutions liées au \`<StrictMode>\` de React.
+  - **Déploiement Automatisé GitHub Pages** : Configuration Vite avec gestion du chemin de base (\`base: '/portfolio/'\`) et intégration des assets statiques via \`import.meta.env.BASE_URL\`.`,
       en: `### Overview
-**CinéLyon** is a cross-platform mobile application (iOS & Android) designed for moviegoers across the Lyon metropolitan area. It aggregates all movies currently playing, full showtime schedules, trailers, film details, and theater locations (UGC, Pathé, Comoedia, independent arthouse cinemas) into a single, cohesive experience.
+**Portfolio** is a modern personal showcase website featuring a sleek, minimalist design directly inspired by Apple's design language and modern web aesthetics. It aggregates and highlights major projects (mobile applications, native desktop apps, and web platforms) alongside a live-synced stream of public GitHub repositories.
 
-Engineered with a high-performance **Offline-First** architecture, CinéLyon also features a native **iOS Swift Widget** (iOS 15.1+ compatible) allowing users to check upcoming showtimes directly from their iPhone home screen.
+Built without external UI component libraries, the site leverages a custom reactive architecture, full bilingual internationalization (FR/EN), and a high-end visual experience across light and dark modes.
 
 ### Key Features
-- **Comprehensive Showtime & Movie Directory**: Dynamic breakdown of showtimes by day, audio version (VF / VOSTFR), format (IMAX, 3D, 4K, Dolby), and theater chain.
-- **Advanced Filtering & Instant Search**: Rapid filters by cinema chain, date, audio/format specs, or genre with instantaneous UI updates.
-- **Native iOS Widget (Swift / SwiftUI)**: Native iOS extension built in Swift using \`@bacons/apple-targets\` (iOS 15.1+ target), sharing state with the main application via an Apple App Group (\`group.fr.cinelyon.app\`).
-- **Native Calendar Sync & System Integration**: One-tap showtime export to the native device calendar (\`expo-calendar\`), custom dynamic app icons (\`expo-dynamic-app-icon\`), and subtle haptic feedback (\`expo-haptics\`).
-- **Favorites Sync & Auth**: Supabase-powered authentication with real-time cloud sync for user favorite movies and preferred theaters.
-- **Rich Movie Details & Media**: In-depth film sheets, embedded YouTube trailers, interactive theater location maps (\`react-native-maps\`), and direct ticketing links.
+- **Apple Design System & Dynamic Dark Mode**: Minimalist user interface featuring glassmorphic effects, smooth transitions, refined typography, and instant zero-flicker light/dark theme toggling (\`ThemeProvider\` + CSS custom properties).
+- **Bilingual Internationalization (FR / EN)**: Native language switching with immediate UI re-rendering and user preference persistence in browser local storage (\`localStorage\`).
+- **Private Project Sheets & Detail Modals**: In-depth architecture overviews, key features, and technical stack breakdowns for private repositories accessible via interactive modal overlays (\`FormattedReadme\` with custom Markdown parsing).
+- **Live GitHub API Synchronization**: Dynamic fetching and smart filtering of public repositories via the GitHub REST API, featuring automatic deduplication of featured projects and robust loading/error states.
+- **Instant Client-Side Search**: Real-time filtering engine allowing instant repository lookup by name, description, or primary programming language.
+- **60 FPS Spring Micro-Animations**: Smooth scroll-triggered entry animations powered by \`framer-motion\` for a fluid and natural user experience.
 
 ### Architecture & Tech Stack
-- **Stack**: **React Native (Expo SDK 52)**, **Expo Router v4** (file-system routing), **Strict TypeScript**, **Supabase** (Auth & DB), and **Swift** (Native iOS Widget target).
+- **Stack**: **React 19**, **TypeScript** (strict mode), **Vite 8** (bundler & dev server), **framer-motion**, and **Vanilla CSS** with custom CSS properties.
 - **Technical Highlights**:
-  - **Offline-First Architecture & MMKV Cache**: Powered by TanStack React Query persisted to disk via \`react-native-mmkv\`. Guarantees near-instantaneous load times and full offline usability.
-  - **60 FPS UI Thread Performance**: Gesture-driven animations and scroll handling offloaded to the native UI thread via \`react-native-reanimated\` (zero JS thread overhead). Strict memoization of styles (\`useMemo\`) and subcomponents (\`React.memo\`).
-  - **Encrypted Security Layer**: Custom Supabase auth storage adapter backed by \`expo-secure-store\` (Keychain AES-256 on iOS, EncryptedSharedPreferences on Android) for safe credential handling.
-  - **Strict iOS 15.1 Deployment Target**: Native extension target engineered specifically to maintain compatibility with iOS 15.1+ devices without reliance on iOS 16/17+ restricted WidgetKit APIs.`,
+  - **Zero Heavy CSS Framework Overhead**: 100% custom global stylesheet (\`src/index.css\`), ensuring maximum rendering performance, lightweight bundle size, and complete layout control.
+  - **Lightweight State Management**: Pure native React Context usage for theme and language management, avoiding third-party state management overhead.
+  - **Strict StrictMode Effect Cleanup**: Clean handling of asynchronous network requests using cancellation flags (\`cancelled\` pattern) preventing memory leaks and double-execution side effects.
+  - **Automated GitHub Pages Deployment**: Tailored Vite base path configuration (\`base: '/portfolio/'\`) and static asset referencing via \`import.meta.env.BASE_URL\`.`,
     },
   },
   {
@@ -169,17 +302,6 @@ The core goal of this project is to blend the editorial elegance of an outdoor a
     },
   },
   {
-    name: "CinéLyon",
-    repo: "cinelyon",
-    description: {
-      fr: "Toutes les séances de cinéma à Lyon, en un seul endroit.",
-      en: "All movie showtimes in Lyon, in one place.",
-    },
-    tags: ["TypeScript", "Web"],
-    github: "https://github.com/abdu-63/cinelyon",
-    live: "https://cinelyon.fr",
-  },
-  {
     name: "BeeperLite",
     repo: "BeeperLite",
     description: {
@@ -188,16 +310,6 @@ The core goal of this project is to blend the editorial elegance of an outdoor a
     },
     tags: ["Swift", "iOS"],
     github: "https://github.com/abdu-63/BeeperLite",
-  },
-  {
-    name: "Converto",
-    repo: "converto",
-    description: {
-      fr: "Convertisseur pour iOS.",
-      en: "A converter for iOS.",
-    },
-    tags: ["Swift", "iOS"],
-    github: "https://github.com/abdu-63/converto",
   },
   {
     name: "Chatbot",
@@ -220,14 +332,34 @@ The core goal of this project is to blend the editorial elegance of an outdoor a
     github: "https://github.com/abdu-63/erreur-prix",
   },
   {
-    name: "Hide-Letterboxd-Rating",
-    repo: "Hide-Letterboxd-Rating",
+    name: "Storedo",
+    repo: "storedo",
     description: {
-      fr: "Masque automatiquement les notes sur les films non vus sur Letterboxd.",
-      en: "Automatically hides ratings on unseen films on Letterboxd.",
+      fr: "StoreDō est un store multi-plateforme (iOS, Android, macOS, Windows) proposant des applications modifiées et outils Jailbreak.",
+      en: "StoreDō is a multi-platform app store (iOS, Android, macOS, Windows) featuring tweaked apps and Jailbreak tools.",
     },
-    tags: ["JavaScript", "Extension"],
-    github: "https://github.com/abdu-63/Hide-Letterboxd-Rating",
+    tags: ["JavaScript", "App Store", "Tools"],
+    github: "https://github.com/abdu-63/storedo",
+  },
+  {
+    name: "Sudocross",
+    repo: "sudocross",
+    description: {
+      fr: "Le combo ultime de jeux de logique : Sudoku & Picross.",
+      en: "The ultimate logic puzzle combo: Sudoku & Picross.",
+    },
+    tags: ["TypeScript", "React", "Puzzle Game"],
+    github: "https://github.com/abdu-63/sudocross",
+  },
+  {
+    name: "Quizz-sql",
+    repo: "quizz-sql",
+    description: {
+      fr: "Application web interactive pour maîtriser le SQL (QCM, examens & flashcards).",
+      en: "Interactive web application to master SQL (MCQs, exams & flashcards).",
+    },
+    tags: ["JavaScript", "Web App", "SQL"],
+    github: "https://github.com/abdu-63/quizz-sql",
   },
 ];
 
@@ -247,6 +379,7 @@ export const excludedRepos = [
   "cinelyon-app",
   "facto",
   "greenpaysages",
+  "portfolio",
 ];
 
 export const profile = {

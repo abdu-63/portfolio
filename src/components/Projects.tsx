@@ -232,21 +232,147 @@ function ProjectCoverMockup({ repo }: { repo: string }) {
         </div>
       );
 
+    case "hodos":
+      return (
+        <div className="mockup-container">
+          <div className="browser-mockup" style={{ maxWidth: "320px" }}>
+            <div style={{ fontSize: "0.8rem", fontWeight: 700, color: "#22c55e" }}>Hodos • Gestion Chantiers</div>
+            <div className="mockup-item-row" style={{ marginTop: "4px" }}>
+              <span>Élagage & Inspection</span>
+              <span className="mockup-badge" style={{ background: "rgba(34,197,94,0.2)", color: "#4ade80" }}>Temps réel</span>
+            </div>
+          </div>
+        </div>
+      );
+
+    case "Odyssey":
+      return (
+        <div className="mockup-container">
+          <div className="browser-mockup" style={{ maxWidth: "320px" }}>
+            <div style={{ fontSize: "0.8rem", fontWeight: 700, color: "#38bdf8" }}>Odyssey • Exploration</div>
+            <div className="mockup-item-row" style={{ marginTop: "4px" }}>
+              <span>Dévoilez votre monde</span>
+              <span style={{ fontSize: "0.75rem", color: "#7dd3fc" }}>GPS Sync 📍</span>
+            </div>
+          </div>
+        </div>
+      );
+
+    case "PlayStream":
+      return (
+        <div className="mockup-container">
+          <div className="browser-mockup" style={{ maxWidth: "320px" }}>
+            <div style={{ fontSize: "0.8rem", fontWeight: 700, color: "#ef4444" }}>PlayStream • iOS GDrive</div>
+            <div className="mockup-item-row" style={{ marginTop: "4px" }}>
+              <span>Streaming Direct</span>
+              <span className="mockup-badge" style={{ background: "rgba(239,68,68,0.2)", color: "#fca5a5" }}>HD Player</span>
+            </div>
+          </div>
+        </div>
+      );
+
+    case "Plumo":
+      return (
+        <div className="mockup-container">
+          <div className="browser-mockup" style={{ maxWidth: "340px" }}>
+            <div style={{ fontSize: "0.8rem", fontWeight: 700, color: "#ec4899" }}>Plumo • Streaming Animés</div>
+            <div className="mockup-item-row" style={{ marginTop: "4px" }}>
+              <span>Épisodes Kaï</span>
+              <span className="mockup-badge" style={{ background: "rgba(236,72,153,0.2)", color: "#f472b6" }}>Fast Stream</span>
+            </div>
+          </div>
+        </div>
+      );
+
+    case "qwirkle":
+      return (
+        <div className="mockup-container">
+          <div className="browser-mockup" style={{ maxWidth: "300px" }}>
+            <div style={{ fontSize: "0.8rem", fontWeight: 700, color: "#eab308" }}>Qwirkle • Engine C</div>
+            <div className="mockup-item-row" style={{ marginTop: "4px" }}>
+              <span>Projet ECE Lyon</span>
+              <span style={{ fontSize: "0.75rem", color: "#fde047" }}>Algorithmique</span>
+            </div>
+          </div>
+        </div>
+      );
+
+    case "portfolio":
+      return (
+        <div className="mockup-container">
+          <div className="browser-mockup" style={{ maxWidth: "340px" }}>
+            <div style={{ fontSize: "0.8rem", fontWeight: 700, color: "#3b82f6" }}>Abdu • Portfolio</div>
+            <div className="mockup-item-row" style={{ marginTop: "4px" }}>
+              <span>Apple Design System</span>
+              <span className="mockup-badge" style={{ background: "rgba(59,130,246,0.2)", color: "#93c5fd" }}>React 19</span>
+            </div>
+          </div>
+        </div>
+      );
+
+    case "storedo":
+      return (
+        <div className="mockup-container">
+          <div className="browser-mockup" style={{ maxWidth: "340px" }}>
+            <div style={{ fontSize: "0.8rem", fontWeight: 700, color: "#8b5cf6" }}>StoreDō • App Store</div>
+            <div className="mockup-item-row" style={{ marginTop: "4px" }}>
+              <span>Apps Modifiées & Tweaks</span>
+              <span className="mockup-badge" style={{ background: "rgba(139,92,246,0.2)", color: "#c4b5fd" }}>Multi-plateforme</span>
+            </div>
+          </div>
+        </div>
+      );
+
+    case "sudocross":
+      return (
+        <div className="mockup-container">
+          <div className="browser-mockup" style={{ maxWidth: "320px" }}>
+            <div style={{ fontSize: "0.8rem", fontWeight: 700, color: "#14b8a6" }}>Sudocross • Logique</div>
+            <div className="mockup-item-row" style={{ marginTop: "4px" }}>
+              <span>Sudoku + Picross</span>
+              <span className="mockup-badge" style={{ background: "rgba(20,184,166,0.2)", color: "#5eead4" }}>Puzzle</span>
+            </div>
+          </div>
+        </div>
+      );
+
+    case "quizz-sql":
+      return (
+        <div className="mockup-container">
+          <div className="browser-mockup" style={{ maxWidth: "340px" }}>
+            <div style={{ fontSize: "0.8rem", fontWeight: 700, color: "#f97316" }}>Quizz SQL • Learn SQL</div>
+            <div className="mockup-item-row" style={{ marginTop: "4px" }}>
+              <span>QCM & Flashcards</span>
+              <span className="mockup-badge" style={{ background: "rgba(249,115,22,0.2)", color: "#fdba74" }}>Interactif</span>
+            </div>
+          </div>
+        </div>
+      );
+
     default:
       return null;
   }
 }
 
 const coverClassMap: Record<string, string> = {
-  facto: "cover-facto",
   "cinelyon-app": "cover-cinelyon-app",
-  greenpaysages: "cover-greenpaysages",
   cinelyon: "cover-cinelyon",
-  BeeperLite: "cover-beeperlite",
+  hodos: "cover-hodos",
+  Odyssey: "cover-odyssey",
+  PlayStream: "cover-playstream",
+  Plumo: "cover-plumo",
   converto: "cover-converto",
+  facto: "cover-facto",
+  qwirkle: "cover-qwirkle",
+  "Hide-Letterboxd-Rating": "cover-hide-letterboxd",
+  portfolio: "cover-portfolio",
+  greenpaysages: "cover-greenpaysages",
+  BeeperLite: "cover-beeperlite",
   chatbot: "cover-chatbot",
   "erreur-prix": "cover-erreur-prix",
-  "Hide-Letterboxd-Rating": "cover-hide-letterboxd",
+  storedo: "cover-storedo",
+  sudocross: "cover-sudocross",
+  "quizz-sql": "cover-quizz-sql",
 };
 
 const languageColorMap: Record<string, string> = {
@@ -328,73 +454,114 @@ export default function Projects() {
       </div>
 
       <div className="majd-projects-grid">
-        {featuredProjects.map((p, i) => (
-          <motion.article
-            key={p.repo}
-            className="majd-project-card"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-60px" }}
-            transition={{ duration: 0.5, delay: i * 0.08, ease: [0.16, 1, 0.3, 1] }}
-          >
-            <div
-              className={`majd-card-cover ${coverClassMap[p.repo] || ""}`}
-              onClick={() => p.readme && setSelectedProject(p)}
-              style={{ cursor: p.readme ? "pointer" : "default" }}
+        {featuredProjects.map((p, i) => {
+          const targetUrl = p.live || p.github;
+          const isClickable = Boolean(targetUrl || p.readme);
+
+          const handleProjectClick = () => {
+            if (targetUrl) {
+              window.open(targetUrl, "_blank", "noopener,noreferrer");
+            } else if (p.readme) {
+              setSelectedProject(p);
+            }
+          };
+
+          return (
+            <motion.article
+              key={p.repo}
+              className="majd-project-card"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-60px" }}
+              transition={{ duration: 0.5, delay: i * 0.08, ease: [0.16, 1, 0.3, 1] }}
             >
-              <ProjectCoverMockup repo={p.repo} />
+              {targetUrl ? (
+                <a
+                  href={targetUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                  className={`majd-card-cover ${coverClassMap[p.repo] || ""}`}
+                  style={{ cursor: "pointer" }}
+                >
+                  <ProjectCoverMockup repo={p.repo} />
 
-              <div className="majd-cover-inner">
-                {p.isPrivate ? (
-                  <span className="majd-badge-private">
-                    <LockIcon size={12} /> {t("Projet Privé", "Private Project", lang)}
-                  </span>
-                ) : <div />}
+                  <div className="majd-cover-inner">
+                    {p.isPrivate ? (
+                      <span className="majd-badge-private">
+                        <LockIcon size={12} /> {t("Projet Privé", "Private Project", lang)}
+                      </span>
+                    ) : <div />}
 
-                <div className="majd-cover-tags">
-                  {p.tags.slice(0, 3).map((tag) => (
-                    <span key={tag} className="tag-chip">
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            </div>
-
-            <div className="majd-card-info">
-              <div className="majd-card-header">
-                <h3
-                  className="majd-project-title"
+                    <div className="majd-cover-tags">
+                      {p.tags.slice(0, 3).map((tag) => (
+                        <span key={tag} className="tag-chip">
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                </a>
+              ) : (
+                <div
+                  className={`majd-card-cover ${coverClassMap[p.repo] || ""}`}
                   onClick={() => p.readme && setSelectedProject(p)}
                   style={{ cursor: p.readme ? "pointer" : "default" }}
                 >
-                  {p.name}
-                </h3>
-                {p.live ? (
-                  <a href={p.live} target="_blank" rel="noreferrer" className="majd-project-link">
-                    ↗
-                  </a>
-                ) : p.github ? (
-                  <a href={p.github} target="_blank" rel="noreferrer" className="majd-project-link">
-                    ↗
-                  </a>
-                ) : null}
-              </div>
-              <p className="majd-project-sub">{p.description[lang]}</p>
+                  <ProjectCoverMockup repo={p.repo} />
 
-              {p.readme && (
-                <button
-                  type="button"
-                  className="btn btn-secondary"
-                  style={{ marginTop: "12px", height: "38px", padding: "0 16px", fontSize: "0.85rem" }}
-                  onClick={() => setSelectedProject(p)}
-                >
-                  {t("Détails du projet →", "Project details →", lang)}
-                </button>
+                  <div className="majd-cover-inner">
+                    {p.isPrivate ? (
+                      <span className="majd-badge-private">
+                        <LockIcon size={12} /> {t("Projet Privé", "Private Project", lang)}
+                      </span>
+                    ) : <div />}
+
+                    <div className="majd-cover-tags">
+                      {p.tags.slice(0, 3).map((tag) => (
+                        <span key={tag} className="tag-chip">
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                </div>
               )}
-            </div>
-          </motion.article>
-        ))}
+
+              <div className="majd-card-info">
+                <div className="majd-card-header">
+                  <h3
+                    className="majd-project-title"
+                    onClick={handleProjectClick}
+                    style={{ cursor: isClickable ? "pointer" : "default" }}
+                  >
+                    {p.name}
+                  </h3>
+                  {p.live ? (
+                    <a href={p.live} target="_blank" rel="noreferrer" className="majd-project-link">
+                      ↗
+                    </a>
+                  ) : p.github ? (
+                    <a href={p.github} target="_blank" rel="noreferrer" className="majd-project-link">
+                      ↗
+                    </a>
+                  ) : null}
+                </div>
+                <p className="majd-project-sub">{p.description[lang]}</p>
+
+                {p.readme && (
+                  <button
+                    type="button"
+                    className="btn btn-secondary"
+                    style={{ marginTop: "12px", height: "38px", padding: "0 16px", fontSize: "0.85rem" }}
+                    onClick={() => setSelectedProject(p)}
+                  >
+                    {t("Détails du projet →", "Project details →", lang)}
+                  </button>
+                )}
+              </div>
+            </motion.article>
+          );
+        })}
       </div>
 
       {/* GitHub Open Source Repos Section (Frameless Canvas) */}
