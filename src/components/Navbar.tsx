@@ -1,8 +1,12 @@
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import { useLang, t } from "../i18n";
 import { useTheme } from "../theme";
+import { GlobeIcon, MoonIcon, SunIcon } from "./Icons";
 
-const links = [
-  { id: "projects", fr: "Projets", en: "Projects" },
+const navLinks = [
+  { id: "services", fr: "Services", en: "Services" },
+  { id: "projects", fr: "Réalisations", en: "Works" },
   { id: "about", fr: "À propos", en: "About" },
   { id: "contact", fr: "Contact", en: "Contact" },
 ];
@@ -10,38 +14,72 @@ const links = [
 export default function Navbar() {
   const { lang, setLang } = useLang();
   const { theme, toggle } = useTheme();
+  const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <header className="navbar">
-      <nav className="navbar-inner">
-        <a href="#top" className="navbar-brand">
+    <header className="navbar-container">
+      <div className="navbar-pill">
+        <a href="#top" className="navbar-brand-title">
           Abdu
         </a>
-        <div className="navbar-links">
-          {links.map((l) => (
-            <a key={l.id} href={`#${l.id}`} className="navbar-link">
-              {l[lang]}
-            </a>
-          ))}
-        </div>
-        <div className="navbar-actions">
-          <button
-            className="pill"
-            onClick={() => setLang(lang === "fr" ? "en" : "fr")}
-            aria-label="Toggle language"
+        <button
+          type="button"
+          className="navbar-menu-btn"
+          onClick={() => setIsOpen(!isOpen)}
+          aria-label={t("Menu de navigation", "Toggle navigation menu", lang)}
+        >
+          <span className="dots-icon">•••</span>
+        </button>
+      </div>
+
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            className="navbar-menu-dropdown"
+            initial={{ opacity: 0, y: -12, scale: 0.96 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, y: -12, scale: 0.96 }}
+            transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
           >
-            {lang === "fr" ? "EN" : "FR"}
-          </button>
-          <button
-            className="pill"
-            onClick={toggle}
-            aria-label="Toggle theme"
-            title={t("Basculer le thème", "Toggle theme", lang)}
-          >
-            {theme === "light" ? "🌙" : "☀️"}
-          </button>
-        </div>
-      </nav>
+            <nav className="navbar-menu-links">
+              {navLinks.map((l) => (
+                <a
+                  key={l.id}
+                  href={`#${l.id}`}
+                  className="navbar-menu-link"
+                  onClick={() => setIsOpen(false)}
+                >
+                  {l[lang]}
+                </a>
+              ))}
+            </nav>
+
+            <div className="navbar-menu-divider" />
+
+            <div className="navbar-menu-actions">
+              <button
+                type="button"
+                className="action-btn"
+                onClick={() => setLang(lang === "fr" ? "en" : "fr")}
+              >
+                <GlobeIcon size={15} /> {lang === "fr" ? "EN" : "FR"}
+              </button>
+
+              <button type="button" className="action-btn" onClick={toggle}>
+                {theme === "light" ? (
+                  <>
+                    <MoonIcon size={15} /> Dark
+                  </>
+                ) : (
+                  <>
+                    <SunIcon size={15} /> Light
+                  </>
+                )}
+              </button>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </header>
   );
 }
