@@ -302,10 +302,14 @@ section {
   width: 100%;
   margin: 0;
   user-select: none;
+  -webkit-text-size-adjust: 100%;
 }
 
-.hero-giant-title span {
+.hero-giant-title span,
+.hero-title-line {
   display: block;
+  white-space: nowrap;
+  -webkit-text-size-adjust: 100%;
 }
 
 .hero-giant-title .kern-f {
@@ -1647,7 +1651,7 @@ section {
 }
 
 /* ---------- Responsive Breakpoints ---------- */
-@media (max-width: 900px) {
+@media (max-width: 1024px) {
   section {
     padding: 80px 20px 0;
   }
@@ -1725,8 +1729,8 @@ section {
   }
 
   .hero-giant-title {
-    font-size: clamp(2.2rem, 10.5vw, 4rem);
-    line-height: 0.9;
+    font-size: clamp(1.9rem, 9.2vw, 3.5rem);
+    line-height: 0.92;
   }
 
   .hero-portrait-card {
@@ -1994,7 +1998,7 @@ section {
 
 @media (max-width: 380px) {
   .hero-giant-title {
-    font-size: clamp(1.8rem, 9.8vw, 2.5rem);
+    font-size: clamp(1.65rem, 8.8vw, 2.3rem);
   }
 
   .hero-portrait-card {

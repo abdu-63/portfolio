@@ -102,8 +102,8 @@ export default function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
         >
-          <span>SO<span className="kern-f">F</span>TWARE</span>
-          <span>ENGINEER</span>
+          <span className="hero-title-line">SO<span className="kern-f">F</span>TWARE</span>
+          <span className="hero-title-line">ENGINEER</span>
         </motion.h1>
 
         {/* Centered Overlapping B&W Portrait Card */}
